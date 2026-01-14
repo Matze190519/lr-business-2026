@@ -12,21 +12,25 @@ export default function Impressum() {
           <div className="space-y-12 text-white/70">
             <div>
               <h2 className="text-xl text-[#BF953F] font-bold mb-4 uppercase tracking-widest">Angaben gemäß § 5 TMG</h2>
-              <p className="text-lg font-serif text-white">MVM Business Management</p>
-              <p>Dubai</p>
-              <p>Vereinigte Arabische Emirate (UAE)</p>
+              <p className="text-lg font-serif text-white">Online Network Vision S.L.</p>
+              <p>Vertreten durch: Mathias Vinzing</p>
+              <p>Santanyi, Spanien</p>
             </div>
 
             <div>
               <h2 className="text-xl text-[#BF953F] font-bold mb-4 uppercase tracking-widest">Kontakt</h2>
-              <p>E-Mail: info@lr-business.eu</p>
-              <p>Web: www.lr-business.eu</p>
+              <p>Telefon: +49 171 5060008</p>
+              <p>E-Mail: info@lr-lifestyle.info</p>
             </div>
 
             <div>
-              <h2 className="text-xl text-[#BF953F] font-bold mb-4 uppercase tracking-widest">Verantwortlich für den Inhalt</h2>
-              <p>MVM Business Management</p>
-              <p>Dubai, UAE</p>
+              <h2 className="text-xl text-[#BF953F] font-bold mb-4 uppercase tracking-widest">EU-Streitschlichtung</h2>
+              <p>
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#BF953F] hover:underline">
+                  https://ec.europa.eu/consumers/odr/
+                </a>
+              </p>
             </div>
 
             <div className="pt-8 border-t border-white/10">
