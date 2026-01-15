@@ -2,3 +2,7 @@
 - [ ] Falls Bilder fehlen: Neu generieren (Schwarz-Gold-Look, High-End)
 - [ ] Pfade in `Autokonzept.tsx` überprüfen und ggf. korrigieren
 - [ ] Änderungen auf GitHub pushen
+- [ ] Visual Refinement: Spotlight/Glow-Effekt hinter Autos implementieren (CSS/Tailwind)
+- [ ] Content Refinement: "Hype"-Begriffe entfernen (Elite, Ascend, Unbegrenzt)
+- [ ] Content Refinement: Seriöse Business-Argumente einfügen (Skalierbarkeit, Sicherheit, Made in Germany)
+- [ ] Content Refinement: "Substanz" stärken (Health & Beauty Marktposition)

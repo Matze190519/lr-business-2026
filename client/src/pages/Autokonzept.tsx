@@ -25,7 +25,7 @@ export default function Autokonzept() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed"
           >
-            Belohnung auf höchstem Niveau. Fahren Sie Premium-Fahrzeuge zu unschlagbaren Konditionen. Ein Statement für Ihren Erfolg.
+            Mobilität als Teil Ihres Geschäftsmodells. Nutzen Sie Premium-Fahrzeuge zu Großkunden-Konditionen als sichtbares Zeichen Ihres unternehmerischen Erfolgs.
           </motion.p>
         </div>
       </section>
@@ -38,22 +38,22 @@ export default function Autokonzept() {
               brand: "MERCEDES-BENZ",
               model: "CLA COUPÉ",
               image: "/images/mercedes-car.png",
-              desc: "Souveräne Eleganz trifft auf kraftvolle Performance. Der perfekte Begleiter für Ihren Aufstieg.",
-              specs: ["Ab Junior Manager", "Keine Anzahlung", "Inkl. Versicherung"]
+              desc: "Repräsentative Eleganz für Ihren Geschäftsalltag. Der ideale Einstieg in die Premium-Klasse.",
+              specs: ["Ab Junior Manager Qualifikation", "Keine Anzahlung erforderlich", "Inklusive Versicherungspaket"]
             },
             {
               brand: "AUDI",
               model: "Q3 SPORTBACK",
               image: "/images/audi-car.png",
-              desc: "Progressives Design und innovative Technologie. Ein Fahrzeug für Visionäre.",
-              specs: ["Ab Manager", "Full-Service Leasing", "Freie Konfiguration"]
+              desc: "Dynamik und Raum für wachsende Ansprüche. Perfekt für den Ausbau Ihrer geschäftlichen Aktivitäten.",
+              specs: ["Ab Manager Qualifikation", "Full-Service Leasing", "Individuelle Konfiguration"]
             },
             {
               brand: "PORSCHE",
               model: "911 CARRERA",
               image: "/images/porsche-car.png",
-              desc: "Die Ikone des Sportwagenbaus. Für diejenigen, die das Ziel schon erreicht haben.",
-              specs: ["Ab Orgaleiter", "Exklusive Konditionen", "Performance Pur"]
+              desc: "Das Statement für etablierte Führungskräfte. Leistung, die keine Kompromisse kennt.",
+              specs: ["Ab Orgaleiter Qualifikation", "Exklusive Sonderkonditionen", "Höchste Performance"]
             }
           ].map((car, index) => (
             <motion.div
@@ -65,12 +65,16 @@ export default function Autokonzept() {
               className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16 mb-32`}
             >
               <div className="w-full lg:w-1/2 relative group">
-                <div className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-2xl" />
-                <div className="relative z-10 bg-[#0a0a0a] rounded-xl border border-white/5 p-8">
+                {/* Spotlight Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-20 blur-3xl rounded-full transform scale-75" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-700 blur-3xl rounded-full" />
+                
+                <div className="relative z-10 bg-[#0a0a0a] rounded-xl border border-white/5 p-8 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     <img 
                       src={car.image} 
                       alt={`${car.brand} ${car.model}`}
-                      className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-1000"
+                      className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-1000 relative z-10"
                     />
                 </div>
               </div>
@@ -94,7 +98,7 @@ export default function Autokonzept() {
                 </ul>
 
                 <Link href="/kontakt" className="inline-flex items-center gap-4 text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm group">
-                    Anfrage Starten
+                    Konditionen Anfragen
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
               </div>

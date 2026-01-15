@@ -32,7 +32,7 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 leading-tight"
           >
-            <span className="block text-white">DEFINE</span>
+            <span className="block text-white">BUSINESS</span>
             <span className="text-gold-gradient">EXCELLENCE</span>
           </motion.h1>
 
@@ -42,7 +42,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 font-light tracking-wide"
           >
-            Willkommen in der Elite des Network Marketing. Ein Geschäftsmodell für diejenigen, die mehr vom Leben erwarten: Finanzielle Freiheit, zeitliche Unabhängigkeit und ein Lifestyle der Extraklasse.
+            Ein skalierbares Geschäftsmodell für Unternehmer. Finanzielle Unabhängigkeit durch intelligente Systeme und geprüfte Qualität "Made in Germany".
           </motion.p>
 
           <motion.div
@@ -53,7 +53,7 @@ export default function Home() {
             <Link href="/business" className="group relative inline-flex items-center gap-4 px-12 py-4 bg-transparent border border-[#BF953F]/30 overflow-hidden transition-all duration-500 hover:border-[#BF953F]">
                 <span className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                 <span className="relative text-[#BF953F] text-sm uppercase tracking-[0.2em] font-medium group-hover:text-white transition-colors duration-300">
-                  Discover The Business
+                  Geschäftsmodell Entdecken
                 </span>
                 <ArrowRight className="w-4 h-4 text-[#BF953F] group-hover:text-white transition-colors duration-300 group-hover:translate-x-2 transform" />
             </Link>
@@ -75,12 +75,12 @@ export default function Home() {
                 THE <span className="text-gold-gradient">VISION</span>
               </h2>
               <p className="text-white/60 text-lg leading-relaxed mb-8 font-light">
-                Wir definieren Erfolg neu. Nicht durch harte Arbeit allein, sondern durch intelligente Systeme, exklusive Produkte und eine Gemeinschaft, die sich gegenseitig an die Spitze hebt.
+                Erfolg ist kein Zufall, sondern das Ergebnis intelligenter Strategien. Wir bieten Ihnen Zugang zu einem etablierten Marktführer im Gesundheits- und Schönheitssektor.
               </p>
               <div className="grid grid-cols-2 gap-8 mt-12">
                 <div className="glass-panel p-8 border-l-2 border-[#BF953F]">
                   <h3 className="text-3xl font-serif text-white mb-2">40+</h3>
-                  <p className="text-xs uppercase tracking-widest text-[#BF953F]">Jahre Erfolg</p>
+                  <p className="text-xs uppercase tracking-widest text-[#BF953F]">Jahre Marktpräsenz</p>
                 </div>
                 <div className="glass-panel p-8 border-l-2 border-[#BF953F]">
                   <h3 className="text-3xl font-serif text-white mb-2">29</h3>
@@ -121,17 +121,16 @@ export default function Home() {
               FAST TRACK <span className="text-gold-gradient">BONUS</span>
             </motion.h2>
             <p className="text-white/60 text-xl max-w-3xl mx-auto font-light">
-              Ihr garantierter Einstieg in die finanzielle Unabhängigkeit. Planbar, sicher und transparent.
+              Planbare Einnahmen für Ihren Start. Ein transparentes Vergütungsmodell, das Leistung direkt belohnt.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { level: "Level 1", income: "250€", title: "Junior Manager", desc: "Der erste Schritt in Ihre Karriere. Bauen Sie ein kleines Team auf und sichern Sie sich Ihr erstes festes Einkommen." },
-              { level: "Level 2", income: "500€", title: "Manager", desc: "Erweitern Sie Ihren Einfluss. Helfen Sie anderen erfolgreich zu werden und verdoppeln Sie Ihr Einkommen." },
-              { level: "Level 3", income: "1.000€", title: "Junior Team Leader", desc: "Führen Sie Führungskräfte. Genießen Sie finanzielle Freiheit und fahren Sie Ihren Traumwagen." },
-              { level: "Level 4", income: "1.250€", title: "Team Leader", desc: "Die Elite. Ein Einkommen, das Ihnen echte Freiheit ermöglicht." },
-            ].slice(0, 3).map((item, index) => (
+              { level: "Level 1", income: "250€", title: "Junior Manager", desc: "Der Einstieg. Bauen Sie eine solide Basis auf und sichern Sie sich Ihr erstes festes Zusatzeinkommen." },
+              { level: "Level 2", income: "500€", title: "Manager", desc: "Wachstum. Erweitern Sie Ihre Struktur und verdoppeln Sie Ihre monatlichen Einnahmen." },
+              { level: "Level 3", income: "1.000€", title: "Junior Team Leader", desc: "Führung. Leiten Sie Ihr Team und profitieren Sie von attraktiven Firmenwagen-Konditionen." },
+            ].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -206,11 +205,15 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="group relative aspect-[16/9] overflow-hidden cursor-pointer bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#BF953F]/30 transition-colors"
               >
+                {/* Spotlight Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-white/5 blur-[50px] rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-0" />
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
                 <img 
                   src={car.image} 
                   alt={car.name}
-                  className="w-full h-full object-contain p-8 transform group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-contain p-8 transform group-hover:scale-105 transition-transform duration-1000 relative z-10"
                 />
                 <div className="absolute bottom-6 left-6 z-20">
                   <h3 className="text-2xl font-serif text-white mb-1 translate-y-2 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -229,9 +232,9 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { icon: Globe, title: "Absolute Freiheit", desc: "Arbeiten Sie wann, wo und mit wem Sie wollen. Ihr Büro ist dort, wo Sie sind." },
-              { icon: TrendingUp, title: "Unbegrenztes Einkommen", desc: "Keine Gehaltsverhandlungen mehr. Ihr Einkommen wächst mit Ihrem Erfolg – ohne Limit." },
-              { icon: Users, title: "Starkes Netzwerk", desc: "Werden Sie Teil einer globalen Elite von Unternehmern, die sich gegenseitig unterstützen." },
+              { icon: Globe, title: "Ortsunabhängigkeit", desc: "Ihr Büro ist dort, wo Sie sind. Nutzen Sie digitale Tools für maximale Flexibilität." },
+              { icon: TrendingUp, title: "Skalierbares Einkommen", desc: "Keine Deckelung nach oben. Ihr wirtschaftlicher Erfolg wächst proportional zu Ihrer Leistung." },
+              { icon: Users, title: "Professionelles Netzwerk", desc: "Profitieren Sie vom Austausch mit erfahrenen Unternehmern und Führungskräften." },
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -263,7 +266,7 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-8xl font-serif mb-12"
           >
-            READY TO <span className="text-gold-gradient">ASCEND?</span>
+            READY FOR <span className="text-gold-gradient">BUSINESS?</span>
           </motion.h2>
           
           <motion.div
