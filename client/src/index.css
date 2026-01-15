@@ -1,72 +1,82 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-gold-dark: var(--gold-dark);
+@theme {
+  --color-background: hsl(5 5% 5%);
+  --color-foreground: hsl(0 0% 100%);
+  --color-card: hsl(20 5% 10%);
+  --color-card-foreground: hsl(0 0% 100%);
+  --color-popover: hsl(20 5% 10%);
+  --color-popover-foreground: hsl(0 0% 100%);
+  --color-primary: hsl(46 65% 52%);
+  --color-primary-foreground: hsl(0 0% 0%);
+  --color-secondary: hsl(0 0% 15%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(0 0% 15%);
+  --color-muted-foreground: hsl(0 0% 60%);
+  --color-accent: hsl(46 65% 52%);
+  --color-accent-foreground: hsl(0 0% 0%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-border: hsl(0 0% 20%);
+  --color-input: hsl(0 0% 20%);
+  --color-ring: hsl(46 65% 52%);
+  --radius: 0.5rem;
   
-  --font-serif: "Cinzel Decorative", serif;
-  --font-sans: "Montserrat", sans-serif;
-}
-
-:root {
-  /* Ultimate Luxury Palette */
-  --background: #050505; /* Deepest Obsidian */
-  --foreground: #F5F5F5; /* Off-White for readability */
-  
-  /* Kinetic Gold Gradient Colors */
-  --gold: #BF953F;
-  --gold-light: #FCF6BA;
-  --gold-dark: #B38728;
+  --font-display: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @layer base {
-  body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-gold/30 selection:text-white;
-    overflow-x: hidden;
+  * {
+    border-color: var(--color-border);
   }
-  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-wide;
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
   }
 }
 
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% auto;
-    animation: shine 4s linear infinite;
-  }
-
-  .bg-gold-gradient {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#BF953F];
   }
   
-  .border-gold-gradient {
-    border-image: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%) 1;
+  .bg-gold-gradient {
+    @apply bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#BF953F];
   }
 
   .glass-panel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    @apply bg-[#1A1A1A]/60 backdrop-blur-xl border border-white/5 shadow-2xl;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
   }
   
-  .glow-white {
-    box-shadow: 0 0 40px -10px rgba(255, 255, 255, 0.15);
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
 }

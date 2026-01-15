@@ -1,59 +1,73 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Car, Gauge, Fuel } from "lucide-react";
 
 export default function Autokonzept() {
   return (
     <div className="min-h-screen bg-[#050505] pt-24">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/car-showroom-bg.jpg')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />
+        <div className="absolute inset-0 bg-[url('/images/garage-porsche.jpg')] bg-cover bg-center opacity-20 blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/90 to-[#050505]" />
         
         <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+          >
+            <Car className="w-4 h-4 text-[#D4AF37]" />
+            <span className="text-[#D4AF37] font-mono text-xs uppercase tracking-widest">Fleet Management</span>
+          </motion.div>
+          
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl md:text-8xl font-serif mb-8"
+            transition={{ duration: 1, ease: "circOut" }}
+            className="text-6xl md:text-9xl font-display font-bold text-white mb-8 tracking-tighter"
           >
-            THE <span className="text-gold-gradient">FLEET</span>
+            THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-white">FLEET</span>
           </motion.h1>
+          
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed"
+            className="text-xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed font-mono"
           >
-            Mobilität als Teil Ihres Geschäftsmodells. Nutzen Sie Premium-Fahrzeuge zu Großkunden-Konditionen als sichtbares Zeichen Ihres unternehmerischen Erfolgs.
+            MOBILITY AS AN INCENTIVE. DRIVE PREMIUM.
           </motion.p>
         </div>
       </section>
 
       {/* Car Showcase */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
+      <section className="py-24 relative">
+        {/* Background Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none" />
+
+        <div className="container mx-auto px-6 relative z-10">
           {[
             {
               brand: "MERCEDES-BENZ",
               model: "CLA COUPÉ",
-              image: "/images/mercedes-car.png",
-              desc: "Repräsentative Eleganz für Ihren Geschäftsalltag. Der ideale Einstieg in die Premium-Klasse.",
-              specs: ["Ab Junior Manager Qualifikation", "Keine Anzahlung erforderlich", "Inklusive Versicherungspaket"]
-            },
-            {
-              brand: "AUDI",
-              model: "Q3 SPORTBACK",
-              image: "/images/audi-car.png",
-              desc: "Dynamik und Raum für wachsende Ansprüche. Perfekt für den Ausbau Ihrer geschäftlichen Aktivitäten.",
-              specs: ["Ab Manager Qualifikation", "Full-Service Leasing", "Individuelle Konfiguration"]
+              image: "/images/garage-mercedes.jpg",
+              level: "JUNIOR MANAGER",
+              specs: [
+                { label: "Leasing", value: "ab 0€" },
+                { label: "Power", value: "136 PS" },
+                { label: "Type", value: "Coupé" }
+              ]
             },
             {
               brand: "PORSCHE",
               model: "911 CARRERA",
-              image: "/images/porsche-car.png",
-              desc: "Das Statement für etablierte Führungskräfte. Leistung, die keine Kompromisse kennt.",
-              specs: ["Ab Orgaleiter Qualifikation", "Exklusive Sonderkonditionen", "Höchste Performance"]
+              image: "/images/garage-porsche.jpg",
+              level: "ORGALEITER",
+              specs: [
+                { label: "Leasing", value: "Sonderkondition" },
+                { label: "Power", value: "385 PS" },
+                { label: "Type", value: "Sport" }
+              ]
             }
           ].map((car, index) => (
             <motion.div
@@ -62,45 +76,52 @@ export default function Autokonzept() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16 mb-32`}
+              className="mb-48 last:mb-0"
             >
-              <div className="w-full lg:w-1/2 relative group">
-                {/* Spotlight Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-20 blur-3xl rounded-full transform scale-75" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-700 blur-3xl rounded-full" />
-                
-                <div className="relative z-10 bg-[#0a0a0a] rounded-xl border border-white/5 p-8 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Tech Specs Panel */}
+                <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div className="glass-panel p-8 rounded-2xl border-l-4 border-[#D4AF37]">
+                    <h3 className="text-[#D4AF37] font-mono text-xs uppercase tracking-widest mb-2">{car.brand}</h3>
+                    <h2 className="text-4xl font-display font-bold text-white mb-8">{car.model}</h2>
+                    
+                    <div className="space-y-6">
+                      {car.specs.map((spec, i) => (
+                        <div key={i} className="flex items-center justify-between border-b border-white/10 pb-4">
+                          <span className="text-white/40 font-mono text-sm uppercase">{spec.label}</span>
+                          <span className="text-white font-bold font-display">{spec.value}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-white/10">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
+                        <span className="text-white font-bold text-sm uppercase">Qualifikation</span>
+                      </div>
+                      <p className="text-white/60 text-sm">{car.level} Status erforderlich</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Car Visual */}
+                <div className={`lg:col-span-8 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className="relative group rounded-2xl overflow-hidden border border-white/10">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10" />
                     <img 
                       src={car.image} 
                       alt={`${car.brand} ${car.model}`}
-                      className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-1000 relative z-10"
+                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000"
                     />
+                    
+                    {/* Interactive Hotspots */}
+                    <div className="absolute bottom-8 left-8 z-20 flex gap-4">
+                      <button className="px-6 py-3 bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-white transition-colors">
+                        Konfigurieren
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-sm uppercase tracking-[0.3em] text-[#BF953F] mb-4">{car.brand}</h3>
-                <h2 className="text-4xl md:text-6xl font-serif text-white mb-8">{car.model}</h2>
-                <p className="text-white/60 text-lg font-light leading-relaxed mb-12">
-                  {car.desc}
-                </p>
-                
-                <ul className="space-y-6 mb-12">
-                  {car.specs.map((spec, i) => (
-                    <li key={i} className="flex items-center gap-4 text-white/80">
-                      <div className="w-6 h-6 rounded-full border border-[#BF953F] flex items-center justify-center">
-                        <Check className="w-3 h-3 text-[#BF953F]" />
-                      </div>
-                      <span className="uppercase tracking-widest text-sm">{spec}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link href="/kontakt" className="inline-flex items-center gap-4 text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm group">
-                    Konditionen Anfragen
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-                </Link>
               </div>
             </motion.div>
           ))}
@@ -108,13 +129,13 @@ export default function Autokonzept() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-[#020202] text-center">
+      <section className="py-32 bg-[#020202] text-center border-t border-white/5">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-serif mb-12">
-            YOUR KEY TO <span className="text-gold-gradient">FREEDOM</span>
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-12">
+            DRIVE YOUR <span className="text-[#D4AF37]">SUCCESS</span>
           </h2>
-          <Link href="/kontakt" className="inline-block px-16 py-5 bg-transparent border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-[0.2em] hover:bg-[#BF953F] hover:text-black transition-all duration-500">
-              Jetzt Einsteigen
+          <Link href="/kontakt" className="inline-flex items-center gap-4 px-12 py-5 border border-[#D4AF37] text-[#D4AF37] font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
+              Jetzt Einsteigen <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
