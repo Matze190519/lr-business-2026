@@ -91,11 +91,9 @@ export default function Autokonzept() {
                   ))}
                 </ul>
 
-                <Link href="/kontakt">
-                  <a className="inline-flex items-center gap-4 text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm group">
+                <Link href="/kontakt" className="inline-flex items-center gap-4 text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm group">
                     Anfrage Starten
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-                  </a>
                 </Link>
               </div>
             </motion.div>
@@ -109,10 +107,8 @@ export default function Autokonzept() {
           <h2 className="text-4xl md:text-6xl font-serif mb-12">
             YOUR KEY TO <span className="text-gold-gradient">FREEDOM</span>
           </h2>
-          <Link href="/kontakt">
-            <a className="inline-block px-16 py-5 bg-transparent border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-[0.2em] hover:bg-[#BF953F] hover:text-black transition-all duration-500">
+          <Link href="/kontakt" className="inline-block px-16 py-5 bg-transparent border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-[0.2em] hover:bg-[#BF953F] hover:text-black transition-all duration-500">
               Jetzt Einsteigen
-            </a>
           </Link>
         </div>
       </section>

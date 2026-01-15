@@ -50,14 +50,12 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <Link href="/business">
-              <a className="group relative inline-flex items-center gap-4 px-12 py-4 bg-transparent border border-[#BF953F]/30 overflow-hidden transition-all duration-500 hover:border-[#BF953F]">
+            <Link href="/business" className="group relative inline-flex items-center gap-4 px-12 py-4 bg-transparent border border-[#BF953F]/30 overflow-hidden transition-all duration-500 hover:border-[#BF953F]">
                 <span className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                 <span className="relative text-[#BF953F] text-sm uppercase tracking-[0.2em] font-medium group-hover:text-white transition-colors duration-300">
                   Discover The Business
                 </span>
                 <ArrowRight className="w-4 h-4 text-[#BF953F] group-hover:text-white transition-colors duration-300 group-hover:translate-x-2 transform" />
-              </a>
             </Link>
           </motion.div>
         </div>
@@ -132,11 +130,9 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <Link href="/autokonzept">
-                <a className="text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm flex items-center gap-4 group">
+              <Link href="/autokonzept" className="text-white hover:text-[#BF953F] transition-colors uppercase tracking-widest text-sm flex items-center gap-4 group">
                   Fahrzeuge Ansehen
                   <span className="w-12 h-[1px] bg-white/20 group-hover:bg-[#BF953F] transition-colors" />
-                </a>
               </Link>
             </motion.div>
           </div>
