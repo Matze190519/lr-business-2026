@@ -1,0 +1,4 @@
+- [ ] Prüfen, ob Autobilder (Mercedes, Audi, Porsche) im Ordner `client/public/images/` vorhanden sind
+- [ ] Falls Bilder fehlen: Neu generieren (Schwarz-Gold-Look, High-End)
+- [ ] Pfade in `Autokonzept.tsx` überprüfen und ggf. korrigieren
+- [ ] Änderungen auf GitHub pushen

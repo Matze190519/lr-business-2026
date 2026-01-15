@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Star, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, TrendingUp, Users, Banknote, Car, Globe } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 font-light tracking-wide"
           >
-            Willkommen in der Elite des Network Marketing. Ein Geschäftsmodell für diejenigen, die mehr vom Leben erwarten.
+            Willkommen in der Elite des Network Marketing. Ein Geschäftsmodell für diejenigen, die mehr vom Leben erwarten: Finanzielle Freiheit, zeitliche Unabhängigkeit und ein Lifestyle der Extraklasse.
           </motion.p>
 
           <motion.div
@@ -106,6 +106,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Fast Track Bonus Section */}
+      <section className="py-32 bg-[#080808] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/gold-texture-hd.jpg')] bg-cover bg-center opacity-5" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-24">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="text-4xl md:text-7xl font-serif mb-6"
+            >
+              FAST TRACK <span className="text-gold-gradient">BONUS</span>
+            </motion.h2>
+            <p className="text-white/60 text-xl max-w-3xl mx-auto font-light">
+              Ihr garantierter Einstieg in die finanzielle Unabhängigkeit. Planbar, sicher und transparent.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { level: "Level 1", income: "250€", title: "Junior Manager", desc: "Der erste Schritt in Ihre Karriere. Bauen Sie ein kleines Team auf und sichern Sie sich Ihr erstes festes Einkommen." },
+              { level: "Level 2", income: "500€", title: "Manager", desc: "Erweitern Sie Ihren Einfluss. Helfen Sie anderen erfolgreich zu werden und verdoppeln Sie Ihr Einkommen." },
+              { level: "Level 3", income: "1.000€", title: "Junior Team Leader", desc: "Führen Sie Führungskräfte. Genießen Sie finanzielle Freiheit und fahren Sie Ihren Traumwagen." },
+              { level: "Level 4", income: "1.250€", title: "Team Leader", desc: "Die Elite. Ein Einkommen, das Ihnen echte Freiheit ermöglicht." },
+            ].slice(0, 3).map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="glass-panel p-10 border border-[#BF953F]/10 hover:border-[#BF953F]/50 transition-all duration-500 group relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Banknote className="w-24 h-24 text-[#BF953F]" />
+                </div>
+                <h3 className="text-[#BF953F] text-sm uppercase tracking-widest mb-2">{item.level}</h3>
+                <div className="text-5xl font-serif text-white mb-4 group-hover:text-gold-gradient transition-colors">
+                  {item.income}<span className="text-lg text-white/40 font-sans font-light">/mtl.*</span>
+                </div>
+                <h4 className="text-2xl text-white mb-4">{item.title}</h4>
+                <p className="text-white/50 font-light leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-16">
+            <p className="text-white/30 text-sm italic">*Garantierter Mindestbonus bei Erreichung der Qualifikationskriterien im Fast Track Programm.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Auto Concept Teaser */}
       <section className="py-32 bg-[#020202] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#BF953F]/5 to-transparent" />
@@ -139,9 +194,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Mercedes-Benz", image: "/images/mercedes-black.jpg" },
-              { name: "Audi", image: "/images/audi-black.jpg" },
-              { name: "Porsche", image: "/images/porsche-black.jpg" },
+              { name: "Mercedes-Benz", image: "/images/mercedes-car.png" },
+              { name: "Audi", image: "/images/audi-car.png" },
+              { name: "Porsche", image: "/images/porsche-car.png" },
             ].map((car, index) => (
               <motion.div
                 key={index}
@@ -149,16 +204,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="group relative aspect-[3/4] overflow-hidden cursor-pointer"
+                className="group relative aspect-[16/9] overflow-hidden cursor-pointer bg-[#0a0a0a] rounded-lg border border-white/5 hover:border-[#BF953F]/30 transition-colors"
               >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
                 <img 
                   src={car.image} 
                   alt={car.name}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
+                  className="w-full h-full object-contain p-8 transform group-hover:scale-105 transition-transform duration-1000"
                 />
-                <div className="absolute bottom-8 left-8 z-20">
-                  <h3 className="text-2xl font-serif text-white mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="absolute bottom-6 left-6 z-20">
+                  <h3 className="text-2xl font-serif text-white mb-1 translate-y-2 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     {car.name}
                   </h3>
                   <div className="w-12 h-[1px] bg-[#BF953F] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -169,14 +224,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Freedom & Lifestyle Grid */}
       <section className="py-32 relative">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { icon: Star, title: "Premium Qualität", desc: "Made in Germany. Zertifizierte Produkte für höchste Ansprüche." },
-              { icon: TrendingUp, title: "Unbegrenztes Potenzial", desc: "Ein Vergütungsplan ohne Deckelung. Ihr Erfolg liegt in Ihrer Hand." },
-              { icon: Users, title: "Starkes Netzwerk", desc: "Werden Sie Teil einer globalen Elite von Unternehmern." },
+              { icon: Globe, title: "Absolute Freiheit", desc: "Arbeiten Sie wann, wo und mit wem Sie wollen. Ihr Büro ist dort, wo Sie sind." },
+              { icon: TrendingUp, title: "Unbegrenztes Einkommen", desc: "Keine Gehaltsverhandlungen mehr. Ihr Einkommen wächst mit Ihrem Erfolg – ohne Limit." },
+              { icon: Users, title: "Starkes Netzwerk", desc: "Werden Sie Teil einer globalen Elite von Unternehmern, die sich gegenseitig unterstützen." },
             ].map((feature, index) => (
               <motion.div
                 key={index}

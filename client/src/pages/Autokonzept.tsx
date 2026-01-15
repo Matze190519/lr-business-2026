@@ -36,22 +36,22 @@ export default function Autokonzept() {
           {[
             {
               brand: "MERCEDES-BENZ",
-              model: "GLE SUV",
-              image: "/images/mercedes-black.jpg",
+              model: "CLA COUPÉ",
+              image: "/images/mercedes-car.png",
               desc: "Souveräne Eleganz trifft auf kraftvolle Performance. Der perfekte Begleiter für Ihren Aufstieg.",
               specs: ["Ab Junior Manager", "Keine Anzahlung", "Inkl. Versicherung"]
             },
             {
               brand: "AUDI",
-              model: "Q8",
-              image: "/images/audi-black.jpg",
+              model: "Q3 SPORTBACK",
+              image: "/images/audi-car.png",
               desc: "Progressives Design und innovative Technologie. Ein Fahrzeug für Visionäre.",
               specs: ["Ab Manager", "Full-Service Leasing", "Freie Konfiguration"]
             },
             {
               brand: "PORSCHE",
-              model: "911",
-              image: "/images/porsche-black.jpg",
+              model: "911 CARRERA",
+              image: "/images/porsche-car.png",
               desc: "Die Ikone des Sportwagenbaus. Für diejenigen, die das Ziel schon erreicht haben.",
               specs: ["Ab Orgaleiter", "Exklusive Konditionen", "Performance Pur"]
             }
@@ -66,11 +66,13 @@ export default function Autokonzept() {
             >
               <div className="w-full lg:w-1/2 relative group">
                 <div className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-2xl" />
-                <img 
-                  src={car.image} 
-                  alt={`${car.brand} ${car.model}`}
-                  className="w-full h-auto object-cover relative z-10 grayscale group-hover:grayscale-0 transition-all duration-1000"
-                />
+                <div className="relative z-10 bg-[#0a0a0a] rounded-xl border border-white/5 p-8">
+                    <img 
+                      src={car.image} 
+                      alt={`${car.brand} ${car.model}`}
+                      className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-1000"
+                    />
+                </div>
               </div>
               
               <div className="w-full lg:w-1/2">
